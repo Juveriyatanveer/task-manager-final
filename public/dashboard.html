@@ -1,0 +1,210 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <h2>Task Manager</h2>
+
+            <ul>
+
+                <li onclick="showDashboard()">
+                    Dashboard
+                </li>
+
+                <li onclick="showProjects()">
+                    Projects
+                </li>
+
+                <li onclick="showTasks()">
+                    Tasks
+                </li>
+
+                <li onclick="logout()">
+                    Logout
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- MAIN CONTENT -->
+
+        <div class="main-content">
+
+            <!-- WELCOME -->
+
+            <h1 id="welcomeText"></h1>
+
+            <p id="roleText"></p>
+
+            <!-- DASHBOARD CARDS -->
+
+            <div class="cards">
+
+                <div class="dashboard-card">
+
+                    <h2 id="totalTasks">0</h2>
+
+                    <p>Total Tasks</p>
+
+                </div>
+
+                <div class="dashboard-card">
+
+                    <h2 id="completedTasks">0</h2>
+
+                    <p>Completed</p>
+
+                </div>
+
+                <div class="dashboard-card">
+
+                    <h2 id="pendingTasks">0</h2>
+
+                    <p>Pending</p>
+
+                </div>
+
+            </div>
+
+            <!-- TASK SECTION -->
+
+            <div class="task-section">
+
+                <!-- CREATE TASK -->
+
+                <h2 id="createTaskHeading">
+                    Create Task
+                </h2>
+
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Task Title"
+                >
+
+                <input
+                    type="text"
+                    id="taskDescription"
+                    placeholder="Task Description"
+                >
+
+                <input
+                    type="text"
+                    id="assignedTo"
+                    placeholder="Assign To"
+                >
+
+                <input
+                    type="date"
+                    id="dueDate"
+                >
+
+                <button onclick="createTask()">
+                    Create Task
+                </button>
+
+                <!-- TASK HEADER -->
+
+                <div class="task-header">
+
+                    <h2 style="margin-top:40px;">
+                        All Tasks
+                    </h2>
+
+                    <div class="task-controls">
+
+                        <input
+                            type="text"
+                            id="searchTask"
+                            placeholder="Search Tasks"
+                            onkeyup="loadTasks()"
+                        >
+
+                        <select
+                            id="filterStatus"
+                            onchange="loadTasks()"
+                        >
+
+                            <option value="All">
+                                All
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- TASK LIST -->
+
+                <div id="taskList"></div>
+
+            </div>
+
+            <!-- PROJECT SECTION -->
+
+            <div class="project-section"
+                 id="projectSection">
+
+                <h2 style="margin-top:50px;">
+                    Projects
+                </h2>
+
+                <input
+                    type="text"
+                    id="projectName"
+                    placeholder="Project Name"
+                >
+
+                <button onclick="createProject()">
+                    Add Project
+                </button>
+
+                <div id="projectList"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
